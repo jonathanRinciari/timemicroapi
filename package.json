@@ -1,0 +1,19 @@
+{
+  "name": "timestampapi",
+  "version": "1.0.0",
+  "description": "creates a timestamp based on query parameters",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jonathanRinciari/timemicroapi.git"
+  },
+  "author": "jonathan rinciari",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jonathanRinciari/timemicroapi/issues"
+  },
+  "homepage": "https://github.com/jonathanRinciari/timemicroapi#readme"
+}
