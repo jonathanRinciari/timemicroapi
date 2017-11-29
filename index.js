@@ -1,33 +1,19 @@
 var express = require("express"),
     app = express(),
-    moment = require('moment');
+    timeConvert = require('./public/scripts/timeconversion.js')
 
 app.use(express.static('public'))
+
 app.get('/', function(req, res){
     res.sendFile('index.html')
 })
 
 app.get('/:timestamp', function(req, res){
-    var inputDate;
-   if(/^\d{8,}$/.test(req.params.timestamp)){
-       inputDate = moment(req.params.timestamp, 'X');
-   } else {
-       inputDate = moment(req.params.timestamp, "MMMM D, YYYY");
-   }
-
-   if(inputDate.isValid()){
-       res.json({
-           unix: inputDate.format("X"),
-           natural: inputDate.format("MMMM D, YYYY")
-       })
-   } else{
-       res.json({
-           unix: null,
-           natural: null
-       })
-   }
+    var inputDate = req.params.timestamp
+    var date = timeConvert.timeConvertion(inputDate)
+    res.json(date)
 })
 
 app.listen(process.env.PORT, process.env.IP, function(){
-  console.log("Testing");
+  console.log("Server Running", process.env.PORT);
 })
